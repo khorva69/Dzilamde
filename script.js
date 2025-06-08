@@ -128,7 +128,7 @@
         networkStatus.style.display = 'none';
       }, 3000);
     } else {
-      networkStatus.textContent = '';
+      networkStatus.textContent = 'იმყოფები ოფლაინ რეჟიმში.';
       networkStatus.style.backgroundColor = '#f8d7da'; // light red
       networkStatus.style.color = '#721c24'; // dark red
       networkStatus.style.display = 'block';
