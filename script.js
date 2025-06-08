@@ -120,7 +120,7 @@
   // Network status update
   function updateNetworkStatus() {
     if (navigator.onLine) {
-      networkStatus.textContent = 'იმყოფები ონლაინ რეჟიმში.';
+      networkStatus.textContent = '';
       networkStatus.style.backgroundColor = '#d4edda'; // light green
       networkStatus.style.color = '#155724'; // dark green
       networkStatus.style.display = 'block';
@@ -128,7 +128,7 @@
         networkStatus.style.display = 'none';
       }, 3000);
     } else {
-      networkStatus.textContent = 'იმყოფები ოფლაინ რეჟიმში.';
+      networkStatus.textContent = '';
       networkStatus.style.backgroundColor = '#f8d7da'; // light red
       networkStatus.style.color = '#721c24'; // dark red
       networkStatus.style.display = 'block';
