@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Generator</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 2rem; }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    textarea, input { width: 100%; padding: 0.5rem; margin-top: 0.25rem; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+    pre { background: #f4f4f4; padding: 1rem; margin-top: 1rem; white-space: pre-wrap; word-break: break-word; }
+    #copyBtn { margin-left: 1rem; background-color: #4CAF50; color: white; border: none; }
+  </style>
+</head>
+<body>
+
+  <h1>Blog JSON Generator</h1>
+
+  <label for="title">Title</label>
+  <input type="text" id="title" placeholder="First Blog Post">
+
+  <label for="date">Date</label>
+  <input type="date" id="date" value="2025-06-08">
+
+  <label for="tags">Tags (comma separated)</label>
+  <input type="text" id="tags" placeholder="intro, personal">
+
+  <label for="excerpt">Excerpt</label>
+  <textarea id="excerpt" rows="2" placeholder="A warm welcome and introduction to the blog."></textarea>
+
+  <label for="content">Content (plain text with paragraphs)</label>
+  <textarea id="content" rows="8" placeholder="This is the first paragraph.
+
+This is the second paragraph.
+
+And the third."></textarea>
+
+  <div>
+    <button onclick="generateJSON()">Generate JSON</button>
+    <button id="copyBtn" onclick="copyJSON()">Copy JSON</button>
+  </div>
+
+  <pre id="output"></pre>
+
+  <script>
+    function generateJSON() {
+      const title = document.getElementById('title').value;
+      const date = document.getElementById('date').value;
+      const tags = document.getElementById('tags').value.split(',').map(tag => tag.trim()).filter(tag => tag);
+      const excerpt = document.getElementById('excerpt').value;
+      const rawContent = document.getElementById('content').value;
+
+      // ტრანსფორმაცია: თითოეული აბზაცი გახდეს <p>...</p>
+      const paragraphs = rawContent
+        .split(/\n\s*\n/) // იყოფა ცარიელი ხაზებით
+        .map(para => para.trim())
+        .filter(para => para.length > 0)
+        .map(para => `<p>${para.replace(/\n/g, '<br>')}</p>`)
+        .join("\n");
+
+      const json = {
+        title,
+        date,
+        tags,
+        excerpt,
+        content: paragraphs
+      };
+
+      document.getElementById('output').textContent = JSON.stringify(json, null, 2);
+    }
+
+    function copyJSON() {
+      const output = document.getElementById('output').textContent;
+      if (!output.trim()) {
+        alert("Please generate the JSON first.");
+        return;
+      }
+
+      navigator.clipboard.writeText(output).then(() => {
+        alert("JSON copied to clipboard!");
+      }, err => {
+        alert("Failed to copy: " + err);
+      });
+    }
+  </script>
+
+</body>
+</html>

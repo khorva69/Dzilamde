@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ძილამდე</title>
+<meta name="description" content="Insightful Programming & Growth Blog" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header role="banner">
+  <h1>ძილამდე</h1>
+</header>
+
+<!-- Network status bar -->
+<div id="network-status" aria-live="polite" role="status"></div>
+
+<main role="main" tabindex="-1">
+  <nav role="navigation" aria-label="Primary navigation" class="bottom-nav">
+    <button type="button" id="nav-home" aria-current="page" aria-label="Home">
+      <span class="icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </span>
+      <span class="label">მთავარი</span>
+    </button>
+    <button type="button" id="nav-blog" aria-label="Blog">
+      <span class="icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+        </svg>
+      </span>
+      <span class="label">პოსტები</span>
+    </button>
+    <button type="button" id="nav-contact" aria-label="Contact">
+      <span class="icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1C10.07 21.5 2.5 13.93 2.5 4a1 1 0 0 1 1-1H7a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2z"/>
+        </svg>
+      </span>
+      <span class="label">კონტაქტები</span>
+    </button>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" aria-label="Homepage" tabindex="0">
+    <h2>მოგესალმებით ძილამდე-ში</h2>
+    <p>ძილამდე — აპლიკაცია ფიქრებისთვის, რომლებიც ძილის წინ გიტრიალებს თავში. სერიოზული, აბსურდული, უცნაური ან გულწრფელი — ყველა აზრს აქვს ადგილი აქ.
+თუ შენს ფიქრს სხვებთან გაზიარება გინდა, დაუკავშირდი ადმინს კონტაქტების მენიუდან.</p>
+    <button id="go-to-blog" type="button" aria-label="Read blog posts">წაიკითხე პოსტები</button>
+  </section>
+
+  <!-- Blog List Section -->
+  <section id="blog" aria-label="Blog posts list" tabindex="0" hidden>
+    <input type="search" id="search-input" aria-label="Search blog posts" placeholder="მოიძიე პოსტები..." />
+    <div id="blog-list" role="list"></div>
+  </section>
+
+  <!-- Single Blog Post Section -->
+  <section id="blog-post" aria-label="Blog post content" tabindex="0" hidden>
+    <article>
+      <h2></h2>
+      <time datetime=""></time>
+      <div class="tags" aria-label="Tags"></div>
+      <div class="content"></div>
+      <button class="back-btn" type="button" aria-label="Back to blog list">პოსტიდან გამოსვლა</button>
+    </article>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" aria-label="Contact information" tabindex="0" hidden>
+    <h2>ადმინისტრაციის კონტაქტები:</h2>
+    <p>გამოიყენე მითითებული კონტაქტები, თუ გსურს რომ შენი პოსტი განათავსო „ძილამდე“-ში, ან უბრალოდ გამოგვყვე ინტერნეტ სივრცეში.</p>
+    <div class="contact-list">
+      <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener" class="contact-item" aria-label="Instagram">
+        <span class="contact-text">ინსტაგრამი @yourprofile</span>
+      </a>
+      <a href="mailto:youremail@example.com" class="contact-item" aria-label="Email">
+        <span class="contact-text">ჯიმეილი youremail@example.com</span>
+      </a>
+      <a href="https://tiktok.com/@yourprofile" target="_blank" rel="noopener" class="contact-item" aria-label="TikTok">
+        <span class="contact-text">ტიკ ტოკი @yourprofile</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo" style="text-align:center; padding:1rem; font-size:0.9rem; color:#666;">
+  &copy;
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
