@@ -7,10 +7,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
   font-family: 'myffont';
 }
 body {
@@ -28,6 +24,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
   overflow-x: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 main {
